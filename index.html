@@ -10,10 +10,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/logo.png" type="image/png">
+    <style>
+        @media (max-width: 639px) {
+            .mobile-center {
+                min-height: calc(100vh - 4rem);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            .mobile-no-pt {
+                padding-top: 0 !important;
+            }
+        }
+    </style>
 </head>
 <body class="bg-black min-h-screen font-sans overflow-x-hidden relative w-full max-w-screen">
     <div class="bg-wrapper"></div>
-
 
     <!-- Fixed Header/Navigation - Full Width with Mobile Hamburger -->
     <header class="fixed top-4 left-0 right-0 z-40">
@@ -57,10 +71,9 @@
     </div>
 
     <!-- Content container -->
-    <div class="container mx-auto px-4 relative z-10 pt-20">
-
+    <div class="container mx-auto px-4 relative z-10 pt-20 sm:pt-20 mobile-no-pt">
         <!-- Main content - Centered in viewport -->
-        <main class="flex flex-col items-center justify-center min-h-screen py-16 hero-section">
+        <main class="hero-section flex flex-col items-center justify-center min-h-screen py-16 sm:py-16 sm:min-h-screen mobile-center">
             <div class="text-center max-w-3xl mx-auto">
                 <!-- Intro text with animation -->
                 <h1 class="text-white text-xl sm:text-2xl font-normal mb-4 sm:mb-6 animate-on-load">Hi, I'm <span class="text-blue-500">Christian Deo Manlangit</span></h1>

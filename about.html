@@ -14,7 +14,6 @@
 <body class="bg-black min-h-screen font-sans overflow-x-hidden relative">
     <div class="bg-wrapper"></div>
 
-
     <!-- Fixed Header/Navigation - Full Width with Mobile Hamburger -->
     <header class="fixed top-4 left-0 right-0 z-40">
         <div class="container mx-auto px-4">
@@ -75,7 +74,7 @@
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 mt-6 justify-center w-full">
                             <a href="https://christiandeomanlangit.github.io/Chai-s-Graphic-Design-Portfolio/" target="_blank" class="glass-button text-white font-bold py-3 px-6 rounded-md text-center transition-all duration-300 flex-1 flex items-center justify-center border border-blue-400/30 bg-blue-500/10 backdrop-blur-sm hover:bg-blue-500/20 hover:shadow-lg hover:shadow-blue-500/20 animate-scale-hover">Graphics Design Portfolio</a>
-                            <a href="assets/resume.png" target="_blank" class="glass-button text-white font-bold py-3 px-6 rounded-md text-center transition-all duration-300 flex-1 flex items-center justify-center border border-purple-400/30 bg-purple-500/10 backdrop-blur-sm hover:bg-purple-500/20 hover:shadow-lg hover:shadow-purple-500/20 animate-scale-hover">Complete Resume</a>
+                            <button id="resume-lightbox-btn" class="glass-button text-white font-bold py-3 px-6 rounded-md text-center transition-all duration-300 flex-1 flex items-center justify-center border border-purple-400/30 bg-purple-500/10 backdrop-blur-sm hover:bg-purple-500/20 hover:shadow-lg hover:shadow-purple-500/20 animate-scale-hover" type="button">Complete Resume</button>
                         </div>
                     </div>
                 </div>
@@ -270,5 +269,69 @@
 
     <script src="script.js"></script>
     <script src="mobile-menu.js"></script>
+    <script src="lightbox.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const resumeBtn = document.getElementById('resume-lightbox-btn');
+            if (resumeBtn) {
+                resumeBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Create overlay
+                    let overlay = document.createElement('div');
+                    overlay.className = 'fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center';
+                    overlay.style.animation = 'fadeIn 0.2s';
+        
+                    overlay.innerHTML = `
+                        <button class="absolute top-8 right-8 bg-black/60 hover:bg-black/80 backdrop-blur text-white p-2 rounded-full shadow-lg transition z-60" id="resume-lightbox-close" aria-label="Close">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <div class="flex flex-col w-full items-center">
+                            <img src="assets/resume.png" alt="Resume"
+                                class="mx-auto rounded-xl shadow-2xl"
+                                id="resume-lightbox-img"
+                                style="max-height:92vh; max-width:calc(100vw - 48px); width:auto; height:auto;"/>
+                        </div>
+                    `;
+                    document.body.appendChild(overlay);
+        
+                    function scaleResumeImage() {
+                        const img = overlay.querySelector('#resume-lightbox-img');
+                        // For very tall images, limit width more strictly on desktop
+                        if (window.innerWidth >= 1024) {
+                            img.style.maxWidth = "600px";
+                            img.style.maxHeight = "92vh";
+                        } else if (window.innerWidth < 1024 && window.innerWidth > 600) {
+                            img.style.maxWidth = "90vw";
+                            img.style.maxHeight = "92vh";
+                        } else {
+                            img.style.maxWidth = "99vw";
+                            img.style.maxHeight = "92vh";
+                        }
+                    }
+                    scaleResumeImage();
+                    window.addEventListener('resize', scaleResumeImage);
+        
+                    function closeResumeLightbox() {
+                        overlay.remove();
+                        window.removeEventListener('resize', scaleResumeImage);
+                    }
+                    overlay.querySelector('#resume-lightbox-close').onclick = closeResumeLightbox;
+                    overlay.addEventListener('click', (e) => {
+                        if (e.target === overlay) closeResumeLightbox();
+                    });
+                    document.addEventListener('keydown', function onKeyDown(e) {
+                        if (!document.body.contains(overlay)) {
+                            document.removeEventListener('keydown', onKeyDown);
+                            window.removeEventListener('resize', scaleResumeImage);
+                            return;
+                        }
+                        if (e.key === 'Escape') closeResumeLightbox();
+                    });
+                });
+            }
+        });
+        </script>
 </body>
 </html>
