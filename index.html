@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Christian Deo Manlangit | Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body class="bg-black min-h-screen font-sans overflow-x-hidden relative w-full max-w-screen">
+    <div class="bg-wrapper"></div>
+
+
+    <!-- Fixed Header/Navigation - Full Width with Mobile Hamburger -->
+    <header class="fixed top-4 left-0 right-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="glassmorphic-nav flex justify-between items-center py-3 px-6 rounded-full">
+                <a href="index.html" class="logo-container">
+                    <img src="assets/logo.png" alt="Logo" class="h-10 w-10" loading="eager" fetchpriority="high" width="40" height="40">
+                </a>
+                <!-- Desktop Navigation -->
+                <nav class="space-x-3">
+                    <a href="index.html" class="nav-link active rounded-full px-4 py-1">Home</a>
+                    <a href="works.html" class="nav-link rounded-full px-4 py-1">Works</a>
+                    <a href="about.html" class="nav-link rounded-full px-4 py-1">About</a>
+                </nav>
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Open Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="relative w-full h-full flex flex-col items-center justify-center glass-panel-mobile">
+            <!-- Close Button -->
+            <button id="close-mobile-menu" class="absolute top-8 right-8 text-white p-2 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <!-- Mobile Menu Items -->
+            <nav class="flex flex-col items-center space-y-10">
+                <a href="index.html" class="text-white text-4xl font-bold hover:text-blue-200 transition-colors mobile-nav-link">HOME</a>
+                <a href="works.html" class="text-white text-4xl font-bold hover:text-blue-200 transition-colors mobile-nav-link">WORKS</a>
+                <a href="about.html" class="text-white text-4xl font-bold hover:text-blue-200 transition-colors mobile-nav-link">ABOUT</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Content container -->
+    <div class="container mx-auto px-4 relative z-10 pt-20">
+
+        <!-- Main content - Centered in viewport -->
+        <main class="flex flex-col items-center justify-center min-h-screen py-16 hero-section">
+            <div class="text-center max-w-3xl mx-auto">
+                <!-- Intro text with animation -->
+                <h1 class="text-white text-xl sm:text-2xl font-normal mb-4 sm:mb-6 animate-on-load">Hi, I'm <span class="text-blue-500">Christian Deo Manlangit</span></h1>
+
+                <!-- Title with different colors and animation - improved for mobile screens -->
+                <div class="mb-4 sm:mb-6 flex flex-col justify-center">
+                    <span class="text-blue-500 text-5xl sm:text-6xl md:text-8xl font-bold leading-none animate-on-load">BSECE</span>
+                    <span class="text-white text-5xl sm:text-6xl md:text-8xl font-bold leading-none animate-on-load">Student</span>
+                </div>
+
+                <!-- Subtitle with animation - responsive text size -->
+                <p class="text-white text-sm sm:text-lg md:text-xl mb-8 sm:mb-12 animate-on-load px-4">A Freshman from <span class="text-blue-500">TUP - Taguig</span>, based in Taguig City, Philippines</p>
+
+                <!-- Email button with animation -->
+                <div class="mb-8 sm:mb-12 animate-on-load px-4 sm:px-0">
+                    <button id="email-button" class="bg-white bg-opacity-5 backdrop-filter backdrop-blur-sm border border-white border-opacity-10 rounded-full px-4 sm:px-6 py-2 sm:py-3 flex items-center justify-center mx-auto" onclick="copyEmail()">
+                        <span id="email-text" class="text-white text-sm sm:text-lg">christiandeomanlangit80@gmail.com</span>
+                        <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-2 sm:ml-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2"></path>
+                        </svg>
+                        <span id="copied-text" class="text-white text-sm sm:text-lg hidden">Copied</span>
+                        <svg id="check-icon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-2 sm:ml-3 text-white hidden" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Social links with animation -->
+                <div class="border-t border-white border-opacity-10 pt-4 sm:pt-6 px-4 sm:px-0">
+                    <div class="flex justify-center space-x-3 sm:space-x-4">
+                        <a href="https://web.facebook.com/christiandeomanlangit725/" target="_blank" rel="noopener noreferrer" class="social-link bg-white bg-opacity-5 hover:bg-opacity-10 p-2 sm:p-3 rounded-full transition-all social-animation">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-white opacity-70" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/christiandeomanlangit" target="_blank" rel="noopener noreferrer" class="social-link bg-white bg-opacity-5 hover:bg-opacity-10 p-2 sm:p-3 rounded-full transition-all social-animation">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-white opacity-70" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/in/christiandeomanlangit725" target="_blank" rel="noopener noreferrer" class="social-link bg-white bg-opacity-5 hover:bg-opacity-10 p-2 sm:p-3 rounded-full transition-all social-animation">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-white opacity-70" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/christiandeomanlangit/" target="_blank" rel="noopener noreferrer" class="social-link bg-white bg-opacity-5 hover:bg-opacity-10 p-2 sm:p-3 rounded-full transition-all social-animation">
+                            <img src="assets/ig.svg" class="h-5 w-5 sm:h-6 sm:w-6 opacity-70" alt="Instagram">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-4 text-center text-gray-400 text-xs">
+            <p>All rights reserved to Christian Deo Manlangit, 2025</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

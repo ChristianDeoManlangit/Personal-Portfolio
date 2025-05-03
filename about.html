@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Christian Deo Manlangit</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body class="bg-black min-h-screen font-sans overflow-x-hidden relative">
+    <div class="bg-wrapper"></div>
+
+
+    <!-- Fixed Header/Navigation - Full Width with Mobile Hamburger -->
+    <header class="fixed top-4 left-0 right-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="glassmorphic-nav flex justify-between items-center py-3 px-6 rounded-full">
+                <a href="index.html" class="logo-container">
+                    <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+                </a>
+                <!-- Desktop Navigation -->
+                <nav class="space-x-3">
+                    <a href="index.html" class="nav-link rounded-full px-4 py-1">Home</a>
+                    <a href="works.html" class="nav-link rounded-full px-4 py-1">Works</a>
+                    <a href="about.html" class="nav-link active rounded-full px-4 py-1">About</a>
+                </nav>
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Open Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="relative w-full h-full flex flex-col items-center justify-center glass-panel-mobile">
+            <!-- Close Button -->
+            <button id="close-mobile-menu" class="absolute top-8 right-8 text-white p-2 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <!-- Mobile Menu Items -->
+            <nav class="flex flex-col items-center space-y-10">
+                <a href="index.html" class="text-white text-4xl font-bold hover:text-blue-200 transition-colors mobile-nav-link">HOME</a>
+                <a href="works.html" class="text-white text-4xl font-bold hover:text-blue-200 transition-colors mobile-nav-link">WORKS</a>
+                <a href="about.html" class="text-white text-4xl font-bold hover:text-blue-200 transition-colors mobile-nav-link">ABOUT</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Content container -->
+    <div class="container mx-auto px-4 relative z-10 pt-20">
+
+        <!-- Main content -->
+        <main class="pt-8 pb-16">
+            <h1 class="text-white text-3xl font-bold text-center mb-4 hidden-animate">About Me!</h1>
+
+            <!-- About section -->
+            <div class="about-section max-w-4xl mx-auto mb-12">
+                <div class="glass-panel p-6 rounded-xl mb-8 flex flex-col md:flex-row gap-6 items-center hidden-animate animate-scale-hover">
+                    <div class="md:w-1/3">
+                        <img src="assets/profile.jpg" alt="Profile Image" class="rounded-xl w-full h-auto" loading="eager" fetchpriority="high" width="400" height="400">
+                    </div>
+                    <div class="md:w-2/3">
+                        <p class="text-gray-300 mb-6">
+                            Hi, I'm Deo, I'm an aspiring, front-end and "developer" currently pursuing a college degree in Electronics Engineering. My main expertise lies in web design and interface development using HTML, CSS, JavaScript, and Figma. For more demanding tasks beyond design, I also work with Python, C++, C#, and React.js.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mt-6 justify-center w-full">
+                            <a href="https://christiandeomanlangit.github.io/Chai-s-Graphic-Design-Portfolio/" target="_blank" class="glass-button text-white font-bold py-3 px-6 rounded-md text-center transition-all duration-300 flex-1 flex items-center justify-center border border-blue-400/30 bg-blue-500/10 backdrop-blur-sm hover:bg-blue-500/20 hover:shadow-lg hover:shadow-blue-500/20 animate-scale-hover">Graphics Design Portfolio</a>
+                            <a href="assets/resume.png" target="_blank" class="glass-button text-white font-bold py-3 px-6 rounded-md text-center transition-all duration-300 flex-1 flex items-center justify-center border border-purple-400/30 bg-purple-500/10 backdrop-blur-sm hover:bg-purple-500/20 hover:shadow-lg hover:shadow-purple-500/20 animate-scale-hover">Complete Resume</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats section with counter animations -->
+                <div class="stats-section grid grid-cols-3 gap-4 mb-12">
+                    <div class="glass-panel p-4 rounded-xl text-center hidden-animate animate-scale-hover">
+                        <h3 class="text-white text-2xl font-bold counter-animate" data-target="9">0</h3>
+                        <p class="text-gray-400 text-sm">Featured Projects</p>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl text-center hidden-animate animate-scale-hover">
+                        <h3 class="text-white text-2xl font-bold counter-animate" data-target="20">0</h3>
+                        <p class="text-gray-400 text-sm">Projects Created</p>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl text-center hidden-animate animate-scale-hover">
+                        <h3 class="text-white text-2xl font-bold counter-animate" data-target="30">0</h3>
+                        <p class="text-gray-400 text-sm">Designs Completed</p>
+                    </div>
+                </div>
+
+                <!-- GitHub Stats -->
+                <div class="github-stats glass-panel p-6 rounded-xl mb-12 hidden-animate animate-scale-hover">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+                        <h3 class="text-blue-500 font-medium mb-2 sm:mb-0">ChristianDeoManlangit (Christian Deo Manlangit)</h3>
+                        <div class="flex items-center">
+                            <span class="h-2 w-2 bg-green-400 rounded-full mr-1 animate-pulse"></span>
+                            <span class="text-gray-300 text-sm">Active</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Profile Details Card -->
+                        <div class="col-span-3 glass-panel p-4 rounded-xl overflow-hidden hidden-animate">
+                            <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=ChristianDeoManlangit&theme=react" alt="GitHub Profile Details" class="w-full h-auto">
+                        </div>
+
+                        <!-- Stats Cards Container -->
+                        <div class="flex flex-col md:flex-row gap-4 col-span-3">
+                            <!-- General Stats Card -->
+                            <div class="glass-panel p-4 rounded-xl overflow-hidden flex-1 hidden-animate">
+                                <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=ChristianDeoManlangit&theme=react" alt="GitHub General Stats" class="w-full h-full object-contain">
+                            </div>
+
+                            <!-- Repos by Language Card -->
+                            <div class="glass-panel p-4 rounded-xl overflow-hidden flex-1 hidden-animate">
+                                <img src="http://github-profile-summary-cards-ktcudck4p.vercel.app/api/cards/repos-per-language?username=ChristianDeoManlangit&theme=react" alt="GitHub Repos by Language" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="mb-12">
+                    <h2 class="text-white text-2xl font-bold text-center mb-6 hidden-animate">Tech Stack</h2>
+
+                    <!-- Grid layout for the tech boxes -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Programming & Web Development -->
+                        <div class="tech-box glass-panel p-6 rounded-xl backdrop-blur-sm hidden-animate animate-scale-hover">
+                            <h3 class="text-white text-lg font-medium mb-4 text-center">💻 Programming & Web Development</h3>
+                            <div class="badge-container flex flex-wrap justify-center gap-2">
+                                <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white" alt=".NET" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white" alt="Lua" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/TensorFlow-FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white" alt="TensorFlow" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/OpenCV-5C3EE8.svg?style=for-the-badge&logo=OpenCV&logoColor=white" alt="OpenCV" class="hidden-animate">
+                            </div>
+                        </div>
+
+                        <!-- Design & Editing Tools -->
+                        <div class="tech-box glass-panel p-6 rounded-xl backdrop-blur-sm hidden-animate animate-scale-hover">
+                            <h3 class="text-white text-lg font-medium mb-4 text-center">🎨 Design & Editing Tools</h3>
+                            <div class="badge-container flex flex-wrap justify-center gap-2">
+                                <img src="https://img.shields.io/badge/Adobe%20After%20Effects-9999ff.svg?style=for-the-badge&logo=adobe%20after%20effects&logoColor=white" alt="Adobe After Effects" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/Adobe%20Audition-9999ff.svg?style=for-the-badge&logo=adobe%20audition&logoColor=white" alt="Adobe Audition" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/Adobe%20Premiere%20Pro-9999ff.svg?style=for-the-badge&logo=adobe%20premiere%20pro&logoColor=white" alt="Adobe Premiere Pro" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white" alt="Adobe Photoshop" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/adobe%20illustrator-%23FF9A00.svg?style=for-the-badge&logo=adobe%20illustrator&logoColor=white" alt="Adobe Illustrator" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/DaVinci%20Resolve-233A51.svg?style=for-the-badge&logo=DaVinci-Resolve&logoColor=white" alt="DaVinci Resolve" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/AutoCAD-E51050.svg?style=for-the-badge&logo=AutoCAD&logoColor=white" alt="AutoCAD" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/Cinema%204D-011A6A.svg?style=for-the-badge&logo=Cinema-4D&logoColor=white" alt="Cinema 4D" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/SketchUp-005F9E.svg?style=for-the-badge&logo=SketchUp&logoColor=white" alt="SketchUp" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/Canva-00C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white" alt="Canva" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/Figma-F24E1E.svg?style=for-the-badge&logo=Figma&logoColor=white" alt="Figma" class="hidden-animate">
+                                <img src="https://img.shields.io/badge/Framer-0055FF.svg?style=for-the-badge&logo=Framer&logoColor=white" alt="Framer" class="hidden-animate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        .tech-box {
+                            position: relative;
+                            overflow: hidden;
+                            border: 1px solid rgba(255, 255, 255, 0.1);
+                            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                            background-color: rgba(30, 41, 59, 0.6);
+                            transition: all 0.3s ease;
+                        }
+
+                        .tech-box:hover {
+                            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+                            transform: scale(1.02);
+                        }
+
+                        .badge-container img {
+                            transition: transform 0.2s ease;
+                        }
+
+                        .badge-container img:hover {
+                            transform: translateY(-2px);
+                        }
+                    </style>
+                </div>
+
+                <!-- Educational Background -->
+                <div class="mt-20">
+                    <h2 class="text-white text-2xl font-bold text-center mb-6 hidden-animate">Educational Background</h2>
+                    <div class="relative border-l-2 border-purple-500 ml-6 pl-8 pb-4">
+                        <div class="absolute w-4 h-4 bg-purple-500 rounded-full -left-[9px]"></div>
+                        <div class="glass-panel p-4 rounded-xl mb-10 hidden-animate animate-scale-hover">
+                            <h4 class="text-purple-500 font-semibold">2025 - Present</h4>
+                            <h3 class="text-white text-lg font-bold mb-1">Technological University of the Philippines – Taguig</h3>
+                            <p class="text-gray-400 text-sm">Bachelor of Science in Electronics Engineering (BSECE)</p>
+                        </div>
+
+                        <div class="absolute w-4 h-4 bg-purple-500 rounded-full -left-[9px] top-[240px]"></div>
+                        <div class="glass-panel p-4 rounded-xl hidden-animate animate-scale-hover">
+                            <h4 class="text-purple-500 font-semibold">2022 - 2024</h4>
+                            <h3 class="text-white text-lg font-bold mb-1">President Diosdado Macapagal High School</h3>
+                            <p class="text-gray-400 text-sm">Science, Technology, Engineering, and Mathematics (STEM)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="mt-20">
+                    <h2 class="text-white text-2xl font-bold text-center mb-6 hidden-animate">Work Experience</h2>
+                    <div class="relative border-l-2 border-blue-500 ml-6 pl-8 pb-4">
+                        <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px]"></div>
+                        <div class="glass-panel p-4 rounded-xl mb-10 hidden-animate animate-scale-hover">
+                            <h4 class="text-blue-500 font-semibold">2025 – Present</h4>
+                            <h3 class="text-white text-lg font-bold mb-1">The Philippine Artisan – Taguig</h3>
+                            <p class="text-gray-400 text-sm">Position: Junior Media Staff</p>
+                        </div>
+
+                        <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-[120px]"></div>
+                        <div class="glass-panel p-4 rounded-xl mb-10 hidden-animate animate-scale-hover">
+                            <h4 class="text-blue-500 font-semibold">2024</h4>
+                            <h3 class="text-white text-lg font-bold mb-1">Equator Energy Corporation</h3>
+                            <p class="text-gray-400 text-sm">Position: Data Encoder</p>
+                        </div>
+
+                        <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-[240px]"></div>
+                        <div class="glass-panel p-4 rounded-xl mb-10 hidden-animate animate-scale-hover">
+                            <h4 class="text-blue-500 font-semibold">2024</h4>
+                            <h3 class="text-white text-lg font-bold mb-1">Baljeman's Food Corporation</h3>
+                            <p class="text-gray-400 text-sm">Position: Multimedia Artist</p>
+                        </div>
+
+                        <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-[360px]"></div>
+                        <div class="glass-panel p-4 rounded-xl mb-10 hidden-animate animate-scale-hover">
+                            <h4 class="text-blue-500 font-semibold">2024</h4>
+                            <h3 class="text-white text-lg font-bold mb-1">Bardsfab Café</h3>
+                            <p class="text-gray-400 text-sm">Position: Multimedia Artist</p>
+                        </div>
+
+                        <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-[480px]"></div>
+                        <div class="glass-panel p-4 rounded-xl hidden-animate animate-scale-hover">
+                            <h4 class="text-blue-500 font-semibold">2024</h4>
+                            <h3 class="text-white text-lg font-bold mb-1">True Chicken Restaurant</h3>
+                            <p class="text-gray-400 text-sm">Position: Multimedia Artist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-4 text-center text-gray-400 text-xs">
+            <p>All rights reserved to Christian Deo Manlangit, 2025</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

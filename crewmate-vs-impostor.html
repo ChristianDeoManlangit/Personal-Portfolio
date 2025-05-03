@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crewmate vs Impostor | Christian Deo Manlangit</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body class="bg-black min-h-screen font-sans overflow-x-hidden relative">
+    <div class="bg-wrapper"></div>
+    
+    <!-- Fixed Header/Navigation -->
+    <header class="fixed top-4 left-0 right-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="glassmorphic-nav flex justify-between items-center py-3 px-6 rounded-full">
+                <a href="index.html" class="logo-container">
+                    <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+                </a>
+                <!-- Desktop Navigation -->
+                <nav class="space-x-3">
+                    <a href="index.html" class="nav-link rounded-full px-4 py-1">Home</a>
+                    <a href="works.html" class="nav-link active rounded-full px-4 py-1">Works</a>
+                    <a href="about.html" class="nav-link rounded-full px-4 py-1">About</a>
+                </nav>
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Open Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="relative w-full h-full flex flex-col items-center justify-center glass-panel-mobile">
+            <!-- Close Button -->
+            <button id="close-mobile-menu" class="absolute top-8 right-8 text-white p-2 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <!-- Mobile Menu Items -->
+            <nav class="flex flex-col items-center space-y-10">
+                <a href="index.html" class="text-white text-4xl font-bold hover:text-blue-200 transition-colors mobile-nav-link">HOME</a>
+                <a href="works.html" class="text-white text-4xl font-bold hover:text-blue-200 transition-colors mobile-nav-link">WORKS</a>
+                <a href="about.html" class="text-white text-4xl font-bold hover:text-blue-200 transition-colors mobile-nav-link">ABOUT</a>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Content container -->
+    <div class="container mx-auto px-4 relative z-10 pt-20">
+        <!-- Main content -->
+        <main class="pt-8 pb-16 max-w-4xl mx-auto">
+            <div class="flex items-center mb-8 hidden-animate overflow-x-auto">
+                <nav class="breadcrumbs glass-panel px-3 sm:px-4 py-2 rounded-lg w-full">
+                    <ol class="flex flex-wrap sm:flex-nowrap items-center text-sm sm:text-base">
+                        <li class="whitespace-nowrap">
+                            <a href="index.html" class="text-blue-400 hover:text-blue-300 transition-colors">Home</a>
+                        </li>
+                        <li class="text-gray-400 flex items-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </li>
+                        <li class="whitespace-nowrap">
+                            <a href="works.html" class="text-blue-400 hover:text-blue-300 transition-colors">Works</a>
+                        </li>
+                        <li class="text-gray-400 flex items-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </li>
+                        <li class="text-white font-medium truncate min-w-0 flex-1">Crewmate vs Impostor</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="project-detail mb-12">
+                <div class="project-content glass-panel p-6 rounded-xl mb-8 hidden-animate">
+                    <h2 class="text-white text-2xl font-bold mb-4">Crewmate vs Impostor</h2>
+                    <p class="text-gray-300 mb-6">
+                        A Roblox PVP game inspired by Among Us. Players choose to be either a crewmate or an impostor.
+                    </p>
+
+                    <!-- Project screenshots grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="glass-panel p-3 rounded-xl cursor-pointer project-image hidden-animate" data-index="0">
+                            <img src="assets/project-images/crewmate-vs-impostor/1.png" alt="Crewmate vs Impostor Screenshot 1" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
+                        </div>
+                        <div class="glass-panel p-3 rounded-xl cursor-pointer project-image hidden-animate" data-index="1">
+                            <img src="assets/project-images/crewmate-vs-impostor/2.png" alt="Crewmate vs Impostor Screenshot 2" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
+                        </div>
+                        <div class="glass-panel p-3 rounded-xl cursor-pointer project-image hidden-animate" data-index="2">
+                            <img src="assets/project-images/crewmate-vs-impostor/3.png" alt="Crewmate vs Impostor Screenshot 3" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
+                        </div>
+                        <div class="glass-panel p-3 rounded-xl cursor-pointer project-image hidden-animate" data-index="3">
+                            <img src="assets/project-images/crewmate-vs-impostor/4.png" alt="Crewmate vs Impostor Screenshot 4" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-400 text-center mb-8">Screenshots</p>
+                    
+                    <div class="text-center hidden-animate">
+                        <a href="https://www.roblox.com/games/6272155334/CREWMATE-VS-IMPOSTOR-BETA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center glass-button px-6 py-3 rounded-lg text-white">
+                            Learn More!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-4 text-center text-gray-400 text-xs">
+            <p>All rights reserved to Christian Deo Manlangit, 2025</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="mobile-menu.js"></script>
+</body>
+</html>

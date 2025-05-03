@@ -1,0 +1,349 @@
+/* Custom styles to complement Tailwind CSS */
+
+/* Base styles */
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling site-wide */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden; /* Prevent horizontal scroll during animations */
+}
+
+/* Typography scale adjustments */
+h1 {
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+.text-8xl {
+    font-size: 7rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+/* Background styling */
+.bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100%;
+    height: 100%;
+    background-image: url('assets/bg.png');
+    background-repeat: repeat-y;
+    background-position: top center;
+    background-size: 100% auto;
+    background-attachment: scroll;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(20px);
+    animation: backgroundFadeIn 1s ease-out 2s forwards;
+}
+
+@keyframes backgroundFadeIn {
+    from {
+        opacity: 0;
+        filter: blur(20px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .bg-wrapper {
+        background-size: cover;
+        height: 100%;
+    }
+}
+
+/* Glassmorphic elements */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glassmorphic-nav {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.glass-button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-mobile {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation */
+.nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0);
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Project cards */
+.project-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hover\:shadow-blue-glow:hover {
+    box-shadow: 0 0 15px 5px rgba(59, 130, 246, 0.5);
+}
+
+.gradient-overlay {
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .gradient-overlay {
+    opacity: 0.8;
+}
+
+/* Aspect ratio 3:4 for project card images (3/4 = 75% of card height) */
+.aspect-ratio-3\/4 {
+    position: relative;
+    padding-top: 75%; /* 3:4 aspect ratio */
+    overflow: hidden;
+}
+
+.aspect-ratio-3\/4 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Social links */
+.social-link {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: white;
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Logo */
+.logo-container {
+    transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: rotate(10deg);
+}
+
+/* Carousel label transitions */
+#carousel-label {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Email button */
+#email-button {
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+}
+
+#email-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#email-button.copied-state {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+    #email-text {
+        font-size: 0.875rem;
+    }
+    
+    .hero-section {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+/* Desktop/Mobile Navigation Visibility */
+@media (max-width: 767px) {
+    /* Hide desktop navigation on mobile */
+    header nav {
+        display: none !important;
+    }
+    
+    /* Show mobile menu button on mobile */
+    #mobile-menu-button {
+        display: block !important;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Show desktop navigation on larger screens */
+    header nav {
+        display: flex !important;
+    }
+    
+    /* Hide mobile menu button on larger screens */
+    #mobile-menu-button {
+        display: none !important;
+    }
+}
+
+/* Modal and overlay styles */
+#resume-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#resume-modal .glass-panel {
+    position: relative;
+    z-index: 100000;
+}
+
+#resume-modal img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Hidden/shown elements with smooth transitions */
+.hidden {
+    display: none !important;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Animation Classes */
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-up + blur-in animation */
+@keyframes slideUpBlurIn {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+/* Scale animation for hover */
+@keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+/* Counter animation for numbers */
+@keyframes countUp {
+    from {
+        content: "0";
+    }
+    to {
+        content: attr(data-count);
+    }
+}
+
+/* Animation utility classes */
+.animate-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+.animate-slide-up-blur {
+    opacity: 0;
+    animation: slideUpBlurIn 0.8s ease-out forwards;
+}
+
+.animate-scale-hover:hover {
+    transform: scale(1.02);
+    transition: transform 0.4s ease;
+}
+
+/* Staggered animations */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+.stagger-7 { animation-delay: 0.7s; }
+.stagger-8 { animation-delay: 0.8s; }
+
+/* Hidden initially for scroll-triggered animations */
+.hidden-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(5px);
+    transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+}
+
+/* Class added when element comes into view */
+.visible-animate {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
