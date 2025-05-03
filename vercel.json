@@ -1,0 +1,88 @@
+{
+  "rewrites": [
+    {
+      "source": "/works",
+      "destination": "/works.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/aios-science-kit",
+      "destination": "/aios-science-kit.html"
+    },
+    {
+      "source": "/biogas-educational-site",
+      "destination": "/biogas-educational-site.html"
+    },
+    {
+      "source": "/calculator",
+      "destination": "/calculator.html"
+    },
+    {
+      "source": "/chais-graphic-design-portfolio",
+      "destination": "/chais-graphic-design-portfolio.html"
+    },
+    {
+      "source": "/crewmate-vs-impostor",
+      "destination": "/crewmate-vs-impostor.html"
+    },
+    {
+      "source": "/enrollment-registration-system",
+      "destination": "/enrollment-registration-system.html"
+    },
+    {
+      "source": "/finding-waldo",
+      "destination": "/finding-waldo.html"
+    },
+    {
+      "source": "/github-repository-language-analyzer",
+      "destination": "/github-repository-language-analyzer.html"
+    },
+    {
+      "source": "/markdown-editor-vanillajs",
+      "destination": "/markdown-editor-vanillajs.html"
+    },
+    {
+      "source": "/markdown-editor-vite",
+      "destination": "/markdown-editor-vite.html"
+    },
+    {
+      "source": "/music-player",
+      "destination": "/music-player.html"
+    },
+    {
+      "source": "/payroll-accounting-system",
+      "destination": "/payroll-accounting-system.html"
+    },
+    {
+      "source": "/polymers-educational-site",
+      "destination": "/polymers-educational-site.html"
+    },
+    {
+      "source": "/readme-but-fancier",
+      "destination": "/readme-but-fancier.html"
+    },
+    {
+      "source": "/sfishie",
+      "destination": "/sfishie.html"
+    },
+    {
+      "source": "/sound-board",
+      "destination": "/sound-board.html"
+    },
+    {
+      "source": "/thinkplus-ecommerce-site",
+      "destination": "/thinkplus-ecommerce-site.html"
+    },
+    {
+      "source": "/typing-speed-test",
+      "destination": "/typing-speed-test.html"
+    },
+    {
+      "source": "/404",
+      "destination": "/404.html"
+    }
+  ]
+}
