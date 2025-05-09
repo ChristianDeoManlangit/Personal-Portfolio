@@ -216,6 +216,121 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// === Animated Title Loop with GSAP Typing and Blur ===
+(function initializeAnimatedTitleLoopGSAP() {
+    // Always split into two words: first (blue), second (white)
+    const titles = [
+        ['BSECE', 'Student'],
+        ['Front-end', 'Developer'],
+        ['Graphics', 'Designer'],
+        ['Multimedia', 'Editor'],
+        ['Research', 'Writer']
+    ];
+    const container = document.getElementById('animated-title');
+    let idx = 0;
+    const interval = 10000; // 10 seconds
+    const typingSpeed = 0.06; // seconds per character
+    const blurAmount = 12;
+
+    function splitWordToSpans(word, colorClass) {
+        return word.split('').map(char => {
+            const safeChar = char === ' ' ? '&nbsp;' : char;
+            return `<span class="animated-letter ${colorClass}" style="display:inline-block; filter: blur(${blurAmount}px); opacity:0;">${safeChar}</span>`;
+        }).join('');
+    }
+
+    function renderTitle([first, second]) {
+        container.innerHTML =
+            `<span id='animated-title-main' class='text-blue-500' style='display:block;'>${splitWordToSpans(first, 'text-blue-500')}</span>` +
+            `<span id='animated-title-secondary' class='text-white' style='display:block;'>${splitWordToSpans(second, 'text-white')}</span>`;
+    }
+
+    function animateIn(spans) {
+        gsap.to(spans, {
+            opacity: 1,
+            filter: 'blur(0px)',
+            stagger: typingSpeed,
+            duration: 0.4,
+            ease: 'power2.out',
+        });
+    }
+    function animateOut(spans, onComplete) {
+        gsap.to(spans, {
+            opacity: 0,
+            filter: `blur(${blurAmount}px)`,
+            stagger: typingSpeed,
+            duration: 0.4,
+            ease: 'power2.in',
+            onComplete
+        });
+    }
+
+    function showTitle(i) {
+        renderTitle(titles[i]);
+        const spans = container.querySelectorAll('.animated-letter');
+        animateIn(spans);
+    }
+
+    function transitionToNextTitle() {
+        const spans = container.querySelectorAll('.animated-letter');
+        animateOut(spans, () => {
+            idx = (idx + 1) % titles.length;
+            showTitle(idx);
+        });
+    }
+
+    // Initial render
+    showTitle(idx);
+    setInterval(transitionToNextTitle, interval);
+})();
+
+// Overhaul starting animation for all elements in index.html
+function smoothEntryAnimations() {
+    // Animate hero-section children with stagger and smooth fade/slide/blur
+    const hero = document.querySelector('.hero-section');
+    if (!hero) return;
+    const children = hero.querySelectorAll('.animate-on-load, #animated-title, #email-button');
+    gsap.set(children, { opacity: 0, y: 40, filter: 'blur(12px)' });
+    gsap.to(children, {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        stagger: 0.18,
+        ease: 'power2.out',
+        delay: 0.2
+    });
+}
+document.addEventListener('DOMContentLoaded', smoothEntryAnimations);
+
+// Animate email-button when copied
+function animateEmailButtonCopied() {
+    const button = document.getElementById('email-button');
+    if (!button) return;
+    gsap.fromTo(button, {
+        scale: 1,
+        boxShadow: '0 0 0px 0px #3b82f6',
+        backgroundColor: 'rgba(59,130,246,0.15)'
+    }, {
+        scale: 1.08,
+        boxShadow: '0 0 24px 0px #3b82f6',
+        backgroundColor: 'rgba(59,130,246,0.18)',
+        duration: 0.25,
+        yoyo: true,
+        repeat: 1,
+        ease: 'power2.inOut',
+        onComplete: () => {
+            gsap.to(button, { scale: 1, boxShadow: '0 0 0px 0px #3b82f6', backgroundColor: '', duration: 0.2 });
+        }
+    });
+}
+// Patch the copyEmail function to call the animation
+const origUpdateEmailButtonToCopiedState = window.updateEmailButtonToCopiedState;
+window.updateEmailButtonToCopiedState = function() {
+    if (origUpdateEmailButtonToCopiedState) origUpdateEmailButtonToCopiedState();
+    animateEmailButtonCopied();
+};
+
 // Initialize all event listeners
 function initializeEventListeners() {
     // Add event listeners for any interactive elements

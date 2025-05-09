@@ -354,3 +354,33 @@ h1 {
     pointer-events: none;
     user-select: none;
 }
+
+/* === Animated Title Blur/Fade Animation === */
+.animated-title-blur {
+    display: inline-block;
+    transition: filter 2s cubic-bezier(0.4,0,0.2,1), opacity 2s cubic-bezier(0.4,0,0.2,1);
+}
+.blur-fade-out {
+    opacity: 0;
+    filter: blur(16px);
+    pointer-events: none;
+}
+.blur-fade-in {
+    opacity: 1;
+    filter: blur(0);
+}
+
+#animated-title {
+    display: inline-block;
+    text-align: center;
+    white-space: normal;
+}
+#animated-title-main, #animated-title-secondary {
+    display: block;
+    margin: 0;
+    line-height: 1.05;
+    padding: 0;
+}
+#animated-title-secondary {
+    margin-top: -0.1em;
+}
