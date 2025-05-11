@@ -390,6 +390,25 @@ window.updateEmailButtonToCopiedState = function() {
     animateEmailButtonCopied();
 };
 
+// Reveal animation for project cards on scroll (one-time, not replayed)
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.project-card.hidden-animate');
+  const revealOptions = { threshold: 0.12 };
+  const revealOnScroll = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('revealed')) {
+        entry.target.classList.add('visible-animate', 'revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  const observer = new window.IntersectionObserver(revealOnScroll, revealOptions);
+  cards.forEach(card => {
+    card.classList.remove('visible-animate', 'revealed');
+    observer.observe(card);
+  });
+});
+
 // Initialize all event listeners
 function initializeEventListeners() {
     // Add event listeners for any interactive elements
