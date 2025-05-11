@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="404 Not Found - Christian Deo Manlangit Portfolio. The page you are looking for does not exist.">
     <title>404 Not Found | Christian Deo Manlangit</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="WebP/assets/logo.webp" type="image/webp">
     <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
 <body class="bg-black min-h-screen font-sans overflow-x-hidden relative">
@@ -19,7 +21,7 @@
         <div class="container mx-auto px-4">
             <div class="glassmorphic-nav flex justify-between items-center py-3 px-6 rounded-full">
                 <a href="index.html" class="logo-container">
-                    <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+                    <img src="WebP/assets/logo.webp" alt="Logo" class="h-10 w-10">
                 </a>
                 <nav class="space-x-3">
                     <a href="index.html" class="nav-link rounded-full px-4 py-1">Home</a>
@@ -66,7 +68,12 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
-    <script src="mobile-menu.js"></script>
+    <!-- Add aria-labels to social/icon links if present, and ensure all links have discernible names. -->
+    <!-- Set all non-critical images to loading="lazy" and add width/height if missing. -->
+    <!-- TODO: Convert PNG/JPG images to WebP/AVIF for better performance. -->
+    <!-- Defer local scripts for non-blocking load -->
+    <script src="script.js" defer></script>
+    <script src="mobile-menu.js" defer></script>
+    <script src="lightbox.js" defer></script>
 </body>
 </html>

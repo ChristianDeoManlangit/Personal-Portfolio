@@ -216,6 +216,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// GSAP page blur-in overlay animation (fluid, smooth, slightly slower)
+document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('page-blur-overlay');
+    if (overlay) {
+        gsap.set(overlay, { opacity: 0, pointerEvents: 'all' });
+        gsap.to(overlay, {
+            opacity: 1,
+            duration: 0.7,
+            ease: 'power2.out',
+            onStart: () => overlay.style.pointerEvents = 'all',
+            onComplete: () => {
+                gsap.to(overlay, {
+                    opacity: 0,
+                    duration: 0.7,
+                    ease: 'power2.in',
+                    delay: 0.25,
+                    onComplete: () => {
+                        overlay.style.pointerEvents = 'none';
+                        overlay.remove();
+                    }
+                });
+            }
+        });
+    }
+});
+
 // === Animated Title Loop with GSAP Typing and Blur ===
 (function initializeAnimatedTitleLoopGSAP() {
     // Always split into two words: first (blue), second (white)
@@ -284,24 +310,57 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(transitionToNextTitle, interval);
 })();
 
-// Overhaul starting animation for all elements in index.html
-function smoothEntryAnimations() {
-    // Animate hero-section children with stagger and smooth fade/slide/blur
+// Overhaul starting animation for all elements in index.html using GSAP
+function gsapHomepageEntryAnimation() {
     const hero = document.querySelector('.hero-section');
     if (!hero) return;
-    const children = hero.querySelectorAll('.animate-on-load, #animated-title, #email-button');
-    gsap.set(children, { opacity: 0, y: 40, filter: 'blur(12px)' });
-    gsap.to(children, {
+    const animatedBlocks = [
+        ...hero.querySelectorAll('.animate-on-load, #animated-title, #email-button')
+    ];
+    animatedBlocks.forEach(el => el.classList.add('gsap-slide-up-blur'));
+    gsap.to(animatedBlocks, {
         opacity: 1,
         y: 0,
         filter: 'blur(0px)',
-        duration: 1.2,
-        stagger: 0.18,
-        ease: 'power2.out',
-        delay: 0.2
+        duration: 2.4,
+        stagger: {
+            each: 0.28,
+            ease: 'power3.inOut'
+        },
+        ease: 'power3.inOut',
+        onStart: function() {
+            animatedBlocks.forEach(el => el.classList.add('gsap-animated'));
+        },
+        delay: 0.1
     });
 }
-document.addEventListener('DOMContentLoaded', smoothEntryAnimations);
+
+// GSAP entry animation for works.html
+function gsapWorksEntryAnimation() {
+    const animatedBlocks = Array.from(document.querySelectorAll('.hidden-animate'));
+    if (animatedBlocks.length === 0) return;
+    animatedBlocks.forEach(el => el.classList.add('gsap-slide-up-blur'));
+    gsap.to(animatedBlocks, {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.6,
+        stagger: {
+            each: 0.18,
+            ease: 'power3.inOut'
+        },
+        ease: 'power3.inOut',
+        onStart: function() {
+            animatedBlocks.forEach(el => el.classList.add('gsap-animated'));
+        },
+        delay: 0.1
+    });
+}
+
+// Run the animation on works.html
+if (window.location.pathname.endsWith('works.html')) {
+    document.addEventListener('DOMContentLoaded', gsapWorksEntryAnimation);
+}
 
 // Animate email-button when copied
 function animateEmailButtonCopied() {

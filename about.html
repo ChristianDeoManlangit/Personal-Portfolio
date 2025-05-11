@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Christian Deo Manlangit - Learn more about my background, skills, and experience as a front-end developer and designer.">
     <title>About | Christian Deo Manlangit</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="WebP/assets/logo.webp" type="image/webp">
     <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
 <body class="bg-black min-h-screen font-sans overflow-x-hidden relative">
@@ -19,7 +21,7 @@
         <div class="container mx-auto px-4">
             <div class="glassmorphic-nav flex justify-between items-center py-3 px-6 rounded-full">
                 <a href="index.html" class="logo-container">
-                    <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+                    <img src="WebP/assets/logo.webp" alt="Logo" class="h-10 w-10">
                 </a>
                 <!-- Desktop Navigation -->
                 <nav class="space-x-3">
@@ -66,7 +68,7 @@
             <div class="about-section max-w-4xl mx-auto mb-12">
                 <div class="glass-panel p-6 rounded-xl mb-8 flex flex-col md:flex-row gap-6 items-center hidden-animate animate-scale-hover">
                     <div class="md:w-1/3">
-                        <img src="assets/profile.jpg" alt="Profile Image" class="rounded-xl w-full h-auto" loading="eager" fetchpriority="high" width="400" height="400">
+                        <img src="WebP/assets/profile.webp" alt="Profile Image" class="rounded-xl w-full h-auto" loading="eager" fetchpriority="high" width="400" height="400">
                     </div>
                     <div class="md:w-2/3">
                         <p class="text-gray-300 mb-6">
@@ -267,9 +269,13 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
-    <script src="mobile-menu.js"></script>
-    <script src="lightbox.js"></script>
+    <!-- Add aria-labels to social/icon links if present, and ensure all links have discernible names. -->
+    <!-- Set all non-critical images to loading="lazy" and add width/height if missing. -->
+    <!-- TODO: Convert PNG/JPG images to WebP/AVIF for better performance. -->
+    <!-- Defer local scripts for non-blocking load -->
+    <script src="script.js" defer></script>
+    <script src="mobile-menu.js" defer></script>
+    <script src="lightbox.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const resumeBtn = document.getElementById('resume-lightbox-btn');
@@ -288,7 +294,7 @@
                             </svg>
                         </button>
                         <div class="flex flex-col w-full items-center">
-                            <img src="assets/resume.png" alt="Resume"
+                            <img src="WebP/assets/resume.webp" alt="Resume"
                                 class="mx-auto rounded-xl shadow-2xl"
                                 id="resume-lightbox-img"
                                 style="max-height:92vh; max-width:calc(100vw - 48px); width:auto; height:auto;"/>

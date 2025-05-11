@@ -1,15 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Payroll Accounting System - Christian Deo Manlangit. A web app for managing payroll and accounting tasks.">
     <title>Payroll Accounting System | Christian Deo Manlangit</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="WebP/assets/logo.webp" type="image/webp">
     <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
 <body class="bg-black min-h-screen font-sans overflow-x-hidden relative">
@@ -20,7 +21,7 @@
         <div class="container mx-auto px-4">
             <div class="glassmorphic-nav flex justify-between items-center py-3 px-6 rounded-full">
                 <a href="index.html" class="logo-container">
-                    <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+                    <img src="WebP/assets/logo.webp" alt="Logo" class="h-10 w-10">
                 </a>
                 <!-- Desktop Navigation -->
                 <nav class="space-x-3">
@@ -94,10 +95,10 @@
                     <!-- Project screenshots grid -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                         <div class="glass-panel p-3 rounded-xl cursor-pointer project-image hidden-animate" data-index="0">
-                            <img src="assets/project-images/payroll-accounting-system/1.png" alt="Payroll Accounting System Screenshot 1" class="w-full h-auto rounded-lg">
+                            <img src="WebP/assets/project-images/payroll-accounting-system/1.webp" alt="Payroll Accounting System Screenshot 1" class="w-full h-auto rounded-lg">
                         </div>
                         <div class="glass-panel p-3 rounded-xl cursor-pointer project-image hidden-animate" data-index="1">
-                            <img src="assets/project-images/payroll-accounting-system/2.png" alt="Payroll Accounting System Screenshot 2" class="w-full h-auto rounded-lg">
+                            <img src="WebP/assets/project-images/payroll-accounting-system/2.webp" alt="Payroll Accounting System Screenshot 2" class="w-full h-auto rounded-lg">
                         </div>
                     </div>
                     
@@ -136,8 +137,12 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
-    <script src="mobile-menu.js"></script>
-    <script src="lightbox.js"></script>
+    <!-- Add aria-labels to social/icon links if present, and ensure all links have discernible names. -->
+    <!-- Set all non-critical images to loading="lazy" and add width/height if missing. -->
+    <!-- TODO: Convert PNG/JPG images to WebP/AVIF for better performance. -->
+    <!-- Defer local scripts for non-blocking load -->
+    <script src="script.js" defer></script>
+    <script src="mobile-menu.js" defer></script>
+    <script src="lightbox.js" defer></script>
 </body>
 </html>

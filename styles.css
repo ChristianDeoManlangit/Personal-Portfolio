@@ -11,7 +11,16 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden; /* Prevent horizontal scroll during animations */
+    overflow-x: hidden;
+}
+
+/* Add font-display: swap for performance if using @font-face */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: local('Inter'), url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTcviYw.ttf') format('truetype');
 }
 
 /* Typography scale adjustments */
@@ -34,25 +43,24 @@ h1 {
     right: 0;
     min-height: 100%;
     height: 100%;
-    background-image: url('assets/bg.png');
+    background-image: url('WebP/assets/bg.webp');
     background-repeat: repeat-y;
     background-position: top center;
     background-size: 100% auto;
     background-attachment: scroll;
     z-index: -1;
     opacity: 0;
-    filter: blur(20px);
     animation: backgroundFadeIn 1s ease-out 2s forwards;
 }
 
 @keyframes backgroundFadeIn {
     from {
         opacity: 0;
-        filter: blur(20px);
+        transform: scale(1.02);
     }
     to {
         opacity: 1;
-        filter: blur(0);
+        transform: scale(1);
     }
 }
 
@@ -125,11 +133,11 @@ h1 {
 
 .project-card:hover {
     transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
 }
 
 .hover\:shadow-blue-glow:hover {
-    box-shadow: 0 0 15px 5px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 8px 2px rgba(59,130,246,0.35);
 }
 
 .gradient-overlay {
@@ -297,16 +305,6 @@ h1 {
     }
 }
 
-/* Counter animation for numbers */
-@keyframes countUp {
-    from {
-        content: "0";
-    }
-    to {
-        content: attr(data-count);
-    }
-}
-
 /* Animation utility classes */
 .animate-fade-in {
     animation: fadeIn 0.8s ease forwards;
@@ -383,4 +381,30 @@ h1 {
 }
 #animated-title-secondary {
     margin-top: -0.1em;
+}
+
+/* === GSAP Slide Up Blur In Animation for Homepage === */
+.gsap-slide-up-blur {
+  opacity: 0;
+  filter: blur(18px);
+  transform: translateY(60px);
+  will-change: opacity, filter, transform;
+}
+.gsap-slide-up-blur.gsap-animated {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+
+/* Overlay for GSAP blur/fade animation */
+#page-blur-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.13);
+  backdrop-filter: blur(24px);
+  pointer-events: none;
+  opacity: 0;
+  transition: none;
 }

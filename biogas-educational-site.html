@@ -1,15 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Biogas Educational Site - Project by Christian Deo Manlangit. Learn about biogas technology and its applications.">
     <title>Biogas Educational Site | Christian Deo Manlangit</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="WebP/assets/logo.webp" type="image/webp">
     <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
 <body class="bg-black min-h-screen font-sans overflow-x-hidden relative">
@@ -20,7 +21,7 @@
         <div class="container mx-auto px-4">
             <div class="glassmorphic-nav flex justify-between items-center py-3 px-6 rounded-full">
                 <a href="index.html" class="logo-container">
-                    <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+                    <img src="WebP/assets/logo.webp" alt="Logo" class="h-10 w-10">
                 </a>
                 <!-- Desktop Navigation -->
                 <nav class="space-x-3">
@@ -94,16 +95,16 @@
                     <!-- Project screenshots grid -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                         <div class="glass-panel p-3 rounded-xl cursor-pointer project-image hidden-animate" data-index="0">
-                            <img src="assets/project-images/biogas-educational-site/1.png" alt="Biogas Educational Site Screenshot 1" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
+                            <img src="WebP/assets/project-images/biogas-educational-site/1.webp" alt="Biogas Educational Site Screenshot 1" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
                         </div>
                         <div class="glass-panel p-3 rounded-xl cursor-pointer project-image hidden-animate" data-index="1">
-                            <img src="assets/project-images/biogas-educational-site/2.png" alt="Biogas Educational Site Screenshot 2" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
+                            <img src="WebP/assets/project-images/biogas-educational-site/2.webp" alt="Biogas Educational Site Screenshot 2" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
                         </div>
                         <div class="glass-panel p-3 rounded-xl cursor-pointer project-image hidden-animate" data-index="2">
-                            <img src="assets/project-images/biogas-educational-site/3.png" alt="Biogas Educational Site Screenshot 3" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
+                            <img src="WebP/assets/project-images/biogas-educational-site/3.webp" alt="Biogas Educational Site Screenshot 3" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
                         </div>
                         <div class="glass-panel p-3 rounded-xl cursor-pointer project-image hidden-animate" data-index="3">
-                            <img src="assets/project-images/biogas-educational-site/4.png" alt="Biogas Educational Site Screenshot 4" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
+                            <img src="WebP/assets/project-images/biogas-educational-site/4.webp" alt="Biogas Educational Site Screenshot 4" class="w-full h-auto rounded-lg" loading="lazy" width="800" height="500">
                         </div>
                     </div>
                     
@@ -150,8 +151,12 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
-    <script src="mobile-menu.js"></script>
-    <script src="lightbox.js"></script>
+    <!-- Add aria-labels to social/icon links if present, and ensure all links have discernible names. -->
+    <!-- Set all non-critical images to loading="lazy" and add width/height if missing. -->
+    <!-- TODO: Convert PNG/JPG images to WebP/AVIF for better performance. -->
+    <!-- Defer local scripts for non-blocking load -->
+    <script src="script.js" defer></script>
+    <script src="mobile-menu.js" defer></script>
+    <script src="lightbox.js" defer></script>
 </body>
 </html>
